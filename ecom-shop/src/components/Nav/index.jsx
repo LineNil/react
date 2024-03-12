@@ -1,12 +1,20 @@
-import React from "react";
+// Nav.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Nav(){
+function Nav() {
   return (
     <nav>
       <ul>
-        <li>hjem</li>
-        <li>hjem</li>
-        <li>hjem</li>
+        <li>
+          <Link to="/">Hjem</Link>
+        </li>
+        <li>
+          <Link to="/products">Produkter</Link>
+        </li>
+        <li>
+          <Link to="/contact">Kontakt</Link> {/* Legg til lenken til kontakt-siden */}
+        </li>
       </ul>
     </nav>
   );
