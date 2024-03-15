@@ -1,18 +1,17 @@
-import React, {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import APIUrl from "../Api/index";
 
-
-function ProductData(){
+function useProductData() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function getData(){
-      try{
+    async function getData() {
+      try {
         const response = await fetch(APIUrl);
         const json = await response.json();
         setProducts(json.data);
       } catch (error) {
-        console.error('Error fetching data:',error);
+        console.error('Error fetching data:', error);
       }
     }
     getData();
@@ -21,4 +20,4 @@ function ProductData(){
   return products;
 }
 
-export default ProductData;
+export default useProductData;
