@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SearchButton, SearchForm } from "./Style";
 
 function Search({handleSearch}) {
   const [searchTerm, setSearchTerm] = useState ("");
@@ -13,15 +14,15 @@ function Search({handleSearch}) {
   };
 
   return(
-    <form onSubmit={handleSubmit}>
+    <SearchForm onSubmit={handleSubmit}>
       <input
       type="text"
       placeholder="Search products..."
       value={searchTerm}
       onChange={handleChange}
       />
-      <button type="submit">Search</button>
-    </form>
+      <SearchButton type="submit">Search</SearchButton>
+    </SearchForm>
   );
 }
 

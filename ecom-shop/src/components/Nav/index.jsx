@@ -1,20 +1,21 @@
 // Nav.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NavStyle } from './Styles';
 
 function Nav() {
 
   return (
-    <nav>
+    <NavStyle>
       <ul>
         <li>
           <Link to="/">Hjem</Link>
         </li>
         <li>
-          <Link to="/contact">Kontakt</Link> {/* Legg til lenken til kontakt-siden */}
+          <Link to="/contact">Kontakt</Link> 
         </li>
       </ul>
-    </nav>
+    </NavStyle>
   );
 }
 
