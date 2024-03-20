@@ -1,29 +1,22 @@
-// CartOverlay.jsx
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { Link } from 'react-router-dom';
 import CartIcon from "../CartIcon";
+import { Cart } from "./Styles";
 
-function CartOverlay({ cartItems }) {
-  const [cartItemCount, setCartItemCount] = useState(0);
-
+function CartOverlay({ cartItems, cartItemCount }) {
   useEffect(() => {
-    console.log("cartItems:", cartItems); // Logg cartItems for å sjekke om det er definert
-    // Sjekk om cartItems er definert før du prøver å bruke den
-    if (cartItems) {
-      console.log("cartItems length:", cartItems.length); // Logg lengden av cartItems
-      setCartItemCount(cartItems.length);
-    }
-  }, [cartItems]);
-
-  console.log("cartItemCount:", cartItemCount); // Logg cartItemCount for å sjekke verdien
+    console.log("cartItems:", cartItems);
+    console.log("cartItemCount:", cartItemCount);
+  }, [cartItems, cartItemCount]);
 
   return (
-    <div className="cart-overlay">
-      <Link to="/checkout" className="cart-link">
+    <Cart>
+      <Link to="/checkout">
         <CartIcon itemCount={cartItemCount}/>
       </Link>
-    </div>
+    </Cart>
   );
 }
 
 export default CartOverlay;
+

@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "../Reviews";
+import { ProductContainer, ImageContainer, Img, ReviewsContainer, DetailsContainer, Button, NoReviewes } from "./Styles";
 
 
 function IndividualProduct({ products,addToCart }) {
@@ -16,20 +17,30 @@ function IndividualProduct({ products,addToCart }) {
   }
 
   return (
-    <div>
-      <h2>{product.title}</h2>
-      <p>Price: ${product.price}</p>
-      {product.discountedPrice && (
-        <div>
-          <p>Discounted Price: ${product.discountedPrice}</p>
-          <p>Discount: {calculateDiscount(product.price, product.discountedPrice)}%</p>
-          <p>Description: {product.description}</p>
-        </div>
-      )}
-      <Reviews reviews={product.reviews} />
-      <button onClick={handleAddToCart}>Add to cart</button>
-      <img src={product.image.url} alt={product.image.alt} />
-    </div>
+    <ProductContainer>
+      <ImageContainer>
+        <Img src={product.image.url} alt={product.image.alt} />
+      </ImageContainer>
+      <DetailsContainer>
+        <h2>{product.title}</h2>
+        <p>Price: ${product.price}</p>
+        {product.discountedPrice && (
+          <div>
+            <p>Discounted Price: ${product.discountedPrice}</p>
+            <p>Discount: {calculateDiscount(product.price, product.discountedPrice)}%</p>
+            <p>Description: {product.description}</p>
+          </div>
+        )}
+        <Button onClick={handleAddToCart}>Add to cart</Button>
+      </DetailsContainer>
+      <ReviewsContainer>
+        {product.reviews.length > 0 ? (
+          <Reviews reviews={product.reviews} />
+        ) : (
+          <NoReviewes>No reviews on this product!</NoReviewes>
+        )}
+      </ReviewsContainer>
+    </ProductContainer>
   );
 }
 

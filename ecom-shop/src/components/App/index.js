@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "../Layout/index";
@@ -13,16 +12,18 @@ import Success from "../CheckoutSuccessjsx";
 function App() {
   const products = useProductData();
   const [cart, setCart] = useState([]);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
+    setCartItemCount(cartItemCount + 1);
+    console.log("cartItemCount after adding product:", cartItemCount); // Legg til denne linjen
   };
 
   return (
     <BrowserRouter>
       <div>
         <Layout>
-          <CartOverlay cartItems={cart} /> {/* Legg til CartOverlay-komponenten direkte i App */}
           <Routes>
             <Route path="/contact" element={<Contact />} />
             <Route path="/" element={<ProductList addToCart={addToCart} />} />
@@ -30,6 +31,7 @@ function App() {
             <Route path="/checkout" element={<Checkout cartItems={cart} />} />
             <Route path="/checkout/success" element={<Success cartItems={cart} emptyCart={() => setCart([])} />} />
           </Routes>
+          <CartOverlay cartItems={cart} cartItemCount={cartItemCount} /> {/* Send både cartItems og cartItemCount som props til CartOverlay */}
         </Layout>
       </div>
     </BrowserRouter>

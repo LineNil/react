@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import useProductData from "../ProductData";
+import { Button, ProductCard, ProductImage, ProductTitle, GridContainer, StyledLink } from "./Styles"; // Importer GridContainer fra Styles.jsx
 import Search from "../Search/";
 
 function ProductList({ addToCart }) {
   const allProducts = useProductData();
   const [products, setProducts] = useState(allProducts);
   
-
   useEffect(() => {
     setProducts(allProducts);
   }, [allProducts]);
@@ -19,28 +19,33 @@ function ProductList({ addToCart }) {
     setProducts(filteredProducts);
   };
 
-
-
   return (
     <div>
-      <Search handleSearch={handleSearch} />
-      {products.map((product) => (
-        <div key={product.id}>
-          <Link to={`/product/${product.id}`}>
-            <img src={product.image.url} alt={product.image.alt} />
-            <h2>{product.title}</h2>
-          </Link>
-          {product.discountedPrice ? (
-            <div>
-              <p>Price: ${product.discountedPrice}</p>
-              <p>Discount: {calculateDiscount(product.price, product.discountedPrice)}%</p>
-            </div>
-          ) : (
-            <p>Price: {product.price}</p>
-          )}
-          <button onClick={() => addToCart(product)}>Add to cart</button>
-        </div>
-      ))}
+      <Search handleSearch={handleSearch} /> {/* Plasser søkefeltet over produktene */}
+      <GridContainer> {/* Bruk GridContainer rundt produktkortene */}
+        {products.map((product) => (
+          <div key={product.id}>
+            
+              <ProductCard>
+              <StyledLink to={`/product/${product.id}`}>
+                <ProductImage src={product.image.url} alt={product.image.alt} />
+                <ProductTitle>{product.title}</ProductTitle>
+                </StyledLink>
+                {product.discountedPrice ? (
+              <div>
+                <p>Price: ${product.discountedPrice}</p>
+                <p>Discount: {calculateDiscount(product.price, product.discountedPrice)}%</p>
+              </div>
+            ) : (
+              <p>Price: {product.price}</p>
+            )}
+            <Button onClick={() => addToCart(product)}>Add to cart</Button>
+              </ProductCard>
+            
+
+          </div>
+        ))}
+      </GridContainer>
     </div>
   );
 }

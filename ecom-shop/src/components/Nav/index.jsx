@@ -9,10 +9,10 @@ function Nav() {
     <NavStyle>
       <ul>
         <li>
-          <Link to="/">Hjem</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/contact">Kontakt</Link> 
+          <Link to="/contact">Contact</Link> 
         </li>
       </ul>
     </NavStyle>
