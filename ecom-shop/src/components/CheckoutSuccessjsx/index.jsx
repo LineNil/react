@@ -1,18 +1,21 @@
+// Success.jsx
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { SuccessContainer, SuccessContent, Message, ProductsLink } from "./Styles";
 
-function Success({ emptyCart }){
+function Success({ emptyCart, updateCartItemCount }) {
+  useEffect(() => {
+    emptyCart();
+    updateCartItemCount(0);
+  }, [emptyCart, updateCartItemCount]);
 
-useEffect(() => {
-  emptyCart();
-}, [emptyCart]);
-
-  return(
-    <div>
-      <p>success</p>
-        <Link to="/">Produkter</Link>
-        </div>
+  return (
+    <SuccessContainer>
+      <SuccessContent>
+        <Message>Your order has been successfully placed!</Message>
+        <ProductsLink to="/">Back to products</ProductsLink>
+      </SuccessContent>
+    </SuccessContainer>
   );
 }
 
-export default Success
+export default Success;

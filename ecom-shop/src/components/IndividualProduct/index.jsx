@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "../Reviews";
-import { ProductContainer, ImageContainer, Img, ReviewsContainer, DetailsContainer, Button, NoReviewes } from "./Styles";
+import { ProductContainer, ImageContainer, Img, ReviewsContainer, DetailsContainer, Button, NoReviews } from "./Styles";
 
 
 function IndividualProduct({ products,addToCart }) {
@@ -37,7 +37,7 @@ function IndividualProduct({ products,addToCart }) {
         {product.reviews.length > 0 ? (
           <Reviews reviews={product.reviews} />
         ) : (
-          <NoReviewes>No reviews on this product!</NoReviewes>
+          <NoReviews>No reviews on this product!</NoReviews>
         )}
       </ReviewsContainer>
     </ProductContainer>

@@ -5,14 +5,13 @@ import { Cart } from "./Styles";
 
 function CartOverlay({ cartItems, cartItemCount }) {
   useEffect(() => {
-    console.log("cartItems:", cartItems);
-    console.log("cartItemCount:", cartItemCount);
-  }, [cartItems, cartItemCount]);
+    console.log("Cart items or count changed");
+  }, [cartItems]);
 
   return (
     <Cart>
       <Link to="/checkout">
-        <CartIcon itemCount={cartItemCount}/>
+        <CartIcon itemCount={cartItemCount === 0 ? 0 : cartItemCount}/>
       </Link>
     </Cart>
   );

@@ -1,10 +1,10 @@
 import React from "react";
-import { FooterStyle } from "./Styles";
+import { FooterStyle,Text } from "./Styles";
 
 function Footer(){
   return(
     <FooterStyle>
-      <p> &copy; eCom shop. All rights reserved. </p>
+      <Text> &copy; eCom shop. All rights reserved. </Text>
     </FooterStyle>
   );
 }

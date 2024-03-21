@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-
+// Styled component for lenker
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
@@ -26,9 +26,14 @@ export const ProductCard = styled.div`
 // Styled component for produktbilde
 export const ProductImage = styled.img`
   width: 200px;
-  height: 200px; /* Sett maksimal bredde for bildet */
-  object-fit: cover; /* Automatisk høyde basert på proporsjoner */
+  height: 200px;
+  object-fit: cover;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
 // Styled component for produktoverskrift
@@ -36,28 +41,44 @@ export const ProductTitle = styled.h2`
   font-size: 18px;
   margin: 0;
   color: black;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 // Styled component for rutenettcontainer
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); // Four columns with equal width
-  gap: 20px; // Mellomrom mellom produktkortene
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
   margin: 0px 15px;
-  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-x: hidden;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 `;
 
-
+// Styled component for knapp
 export const Button = styled.button`
-padding: 7px 16px;
-background-color: rgb(125, 39, 39);
-color: white;
-cursor: pointer;
-border: medium;
-border-radius: 4px;
-font-size: 12px;
+  padding: 7px 16px;
+  background-color: rgb(125, 39, 39);
+  color: white;
+  cursor: pointer;
+  border: medium;
+  border-radius: 4px;
+  font-size: 12px;
 
-&:hover{
-  background-color: rgb(134, 91, 91);
-}
+  &:hover {
+    background-color: rgb(134, 91, 91);
+  }
 `;
