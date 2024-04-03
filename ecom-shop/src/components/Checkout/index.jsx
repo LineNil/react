@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, CartItemCardWrapper , Image, Wrapper, ItemInfo, Price, Checkout } from "./Styles";
+import { Header, CartItemCardWrapper , Image, Wrapper, ItemInfo, Price, Checkout, EmptyCart } from "./Styles";
 
 function checkout ({ cartItems}) {
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
@@ -7,7 +7,7 @@ function checkout ({ cartItems}) {
     <Wrapper>
       <Header>Cart</Header>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty!</p>
+        <EmptyCart>Your cart is empty!</EmptyCart>
       ) : (
 <>
 {cartItems.map((item) => (

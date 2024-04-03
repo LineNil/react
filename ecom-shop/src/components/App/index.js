@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from "../Layout/index";
@@ -23,7 +22,6 @@ function App() {
   const addToCart = (product) => {
     setCart([...cart, product]);
     setCartItemCount(cartItemCount + 1);
-    console.log("cartItemCount after adding product:", cartItemCount);
   };
 
   return (

@@ -21,8 +21,8 @@ function ProductList({ addToCart }) {
 
   return (
     <div>
-      <Search handleSearch={handleSearch} /> {/* Plasser søkefeltet over produktene */}
-      <GridContainer> {/* Bruk GridContainer rundt produktkortene */}
+      <Search handleSearch={handleSearch} /> 
+      <GridContainer> 
         {products.map((product) => (
           <div key={product.id}>
             

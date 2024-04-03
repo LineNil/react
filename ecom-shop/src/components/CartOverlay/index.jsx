@@ -5,7 +5,6 @@ import { Cart } from "./Styles";
 
 function CartOverlay({ cartItems, cartItemCount }) {
   useEffect(() => {
-    console.log("Cart items or count changed");
   }, [cartItems]);
 
   return (

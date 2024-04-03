@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+
+
+export const EmptyCart = styled.p`
+margin-bottom: 70px;
+
+`;
+
+
 export const Wrapper = styled.div`
 display: flex;
 flex-direction: column;

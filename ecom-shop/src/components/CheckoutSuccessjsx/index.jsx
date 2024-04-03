@@ -1,4 +1,3 @@
-// Success.jsx
 import React, { useEffect } from "react";
 import { SuccessContainer, SuccessContent, Message, ProductsLink } from "./Styles";
 
