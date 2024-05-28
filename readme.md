@@ -1,4 +1,4 @@
-# Project Exam 2 | Holidaze
+# JavaScript frameworks (React) | eCom
 
 ## Goal
 To apply knowledge of React to build an eCom store.
