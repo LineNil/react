@@ -14,9 +14,9 @@ export const ProductCard = styled.div`
   align-items: center;
   text-align: center;
   padding: 15px;
-  border: 1px solid #ccc;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.29) 0px 2px 8px;
 
   &:hover {
     transform: translateY(-5px);
@@ -70,15 +70,50 @@ export const GridContainer = styled.div`
 
 // Styled component for knapp
 export const Button = styled.button`
-  padding: 7px 16px;
-  background-color: rgb(125, 39, 39);
-  color: white;
+padding: 7px 16px;
+  background-color: rgba(202, 104, 44, 0.61);
+  color: black;
   cursor: pointer;
   border: medium;
   border-radius: 4px;
   font-size: 12px;
 
-  &:hover {
-    background-color: rgb(134, 91, 91);
+  &:hover,
+  &:active {
+    background-color: rgb(202, 104, 44);    color: #fff;
+    border-color: #d4940b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(237, 171, 13, 0.5);
   }
 `;
+
+export const ViewButton = styled(Link)`
+padding: 7px 16px;
+  background-color: rgba(202, 104, 44, 0.61);
+  color: black;
+  cursor: pointer;
+  border: medium;
+  border-radius: 4px;
+  font-size: 12px;
+  text-decoration: none;
+  margin-bottom: 10px;
+
+  &:hover,
+  &:active {
+    background-color: rgb(202, 104, 44);    
+    color: #fff;
+    border-color: #d4940b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(237, 171, 13, 0.5);
+  }
+`;
+
+

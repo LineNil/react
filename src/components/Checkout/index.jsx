@@ -1,35 +1,44 @@
-import React from "react";
-import { Header, CartItemCardWrapper , Image, Wrapper, ItemInfo, Price, Checkout, EmptyCart } from "./Styles";
+import React, { useState, useEffect } from "react";
+import { Header, CartItemCardWrapper, Image, Wrapper, ItemInfo, Price, CheckoutLink, EmptyCart } from "./Styles";
 
-function checkout ({ cartItems}) {
-  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
-   return(
+function Checkout({ cartItems }) {
+  const [cart, setCart] = useState(cartItems);
+
+  useEffect(() => {
+    setCart(cartItems); // Oppdater cart-tilstanden når cartItems endres
+  }, [cartItems]);
+
+  // Funksjon for å fjerne en vare fra handlekurven
+  const removeFromCart = (itemToRemove) => {
+    const updatedCart = cart.filter(item => item.id !== itemToRemove.id);
+    setCart(updatedCart); // Oppdaterer handlekurven når et element fjernes
+  };
+
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+
+  return (
     <Wrapper>
       <Header>Cart</Header>
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <EmptyCart>Your cart is empty!</EmptyCart>
       ) : (
-<>
-{cartItems.map((item) => (
-        <CartItemCardWrapper   key={item.id}>
-          <ItemInfo>
-          <h3>{item.title}</h3>
-          <Price>Price:${item.price}</Price>
-          </ItemInfo>
-
-          <Image src={item.image.url} alt={item.image.alt}/>
-          </CartItemCardWrapper  >
-      ))}
-      <h2>Total: ${totalPrice}</h2>
-      <Checkout to="/checkout/success">Checkout</Checkout>
-      </>
-        )}
+        <>
+          {cart.map((item) => (
+            <CartItemCardWrapper key={item.id}>
+              <ItemInfo>
+                <h3>{item.title}</h3>
+                <Price>Price: ${item.price}</Price>
+                <button onClick={() => removeFromCart(item)}>Remove</button>
+              </ItemInfo>
+              <Image src={item.image.url} alt={item.image.alt} />
+            </CartItemCardWrapper>
+          ))}
+          <h2>Total: ${totalPrice}</h2>
+          <CheckoutLink to="/checkout/success">Checkout</CheckoutLink>
+        </>
+      )}
     </Wrapper>
-
-    
-      
-
-   );
+  );
 }
 
-export default checkout;
+export default Checkout;

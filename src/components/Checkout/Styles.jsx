@@ -37,9 +37,6 @@ export const Header = styled.h1`
 text-align: center;
 `;
 
-export const CartItemCard = styled.div`
-
-`;
 
 export const Image = styled.img`
   width: 100px;
@@ -51,7 +48,7 @@ export const Total = styled.h2`
   margin-top: 20px; /* Legg til mellomrom mellom kortene og totalsummen */
 `;
 
-export const Checkout = styled(Link)`
+export const CheckoutLink = styled(Link)`
 padding: 13px 105px;
 background-color: rgb(125, 39, 39);
 color: white;

@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "../Reviews";
+import Notification from "./notification";
 import { ProductContainer, ImageContainer, Img, ReviewsContainer, DetailsContainer, Button, NoReviews } from "./Styles";
 
 
 function IndividualProduct({ products,addToCart }) {
   const { id } = useParams();
   const product = products.find((product) => product.id === id);
+  const [notification, setNotification] = useState(null);
 
   const handleAddToCart = () => {
     addToCart(product);
+    setNotification(product);
+    setTimeout(() => setNotification(null), 3000);
   };
 
   if (!product) {
@@ -17,7 +21,9 @@ function IndividualProduct({ products,addToCart }) {
   }
 
   return (
-    <ProductContainer>
+    <div>
+      {notification && <Notification product={notification} />}
+   <ProductContainer>
       <ImageContainer>
         <Img src={product.image.url} alt={product.image.alt} />
       </ImageContainer>
@@ -41,6 +47,8 @@ function IndividualProduct({ products,addToCart }) {
         )}
       </ReviewsContainer>
     </ProductContainer>
+    </div>
+ 
   );
 }
 

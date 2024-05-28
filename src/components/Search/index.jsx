@@ -17,7 +17,7 @@ function Search({handleSearch}) {
     <SearchForm onSubmit={handleSubmit}>
       <input
       type="text"
-      placeholder="Search products..."
+      placeholder="Find your product..."
       value={searchTerm}
       onChange={handleChange}
       />

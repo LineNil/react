@@ -4,11 +4,10 @@ export const NavStyle = styled.nav`
 ul{
   list-style-type: none;
   display: flex;
-  justify-content: space-evenly;
-  margin: 0px 30%;
   font-size: 15px;
-  margin-bottom: 55px;
-}
+  gap: 20px;
+  padding: 0px 0px 25px 30px;
+  position: relative;}
 
 
 a{
@@ -17,7 +16,7 @@ a{
 }
 
 a: hover{
-  font-weight: bold;
+  text-decoration: underline;
   color: rgb(125, 39, 39);
 }
 `;

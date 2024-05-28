@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-
 import useProductData from "../ProductData";
-import { Button, ProductCard, ProductImage, ProductTitle, GridContainer, StyledLink } from "./Styles"; // Importer GridContainer fra Styles.jsx
+import { Button, ViewButton, ProductCard, ProductImage, ProductTitle, GridContainer, StyledLink } from "./Styles"; // Importer GridContainer fra Styles.jsx
 import Search from "../Search/";
+import Notification from "../IndividualProduct/notification";
 
 function ProductList({ addToCart }) {
   const allProducts = useProductData();
   const [products, setProducts] = useState(allProducts);
+  const [notification, setNotification] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     setProducts(allProducts);
@@ -19,9 +21,18 @@ function ProductList({ addToCart }) {
     setProducts(filteredProducts);
   };
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setNotification(product);
+    setIsVisible(true);
+    setTimeout(() => setIsVisible(false), 2500); // 2.5s før fadeOut starter
+    setTimeout(() => setNotification(null), 3000); // 3s før notifikasjonen fjernes helt
+  };
+
   return (
     <div>
       <Search handleSearch={handleSearch} /> 
+      {notification && <Notification product={notification} isVisible={isVisible} />}
       <GridContainer> 
         {products.map((product) => (
           <div key={product.id}>
@@ -39,7 +50,9 @@ function ProductList({ addToCart }) {
             ) : (
               <p>Price: {product.price}</p>
             )}
-            <Button onClick={() => addToCart(product)}>Add to cart</Button>
+            
+            <ViewButton  to={`/product/${product.id}`}>View</ViewButton>
+            <Button onClick={() => handleAddToCart(product)}>Add to cart</Button>
               </ProductCard>
             
 

@@ -1,10 +1,13 @@
 import React from "react";
-import { LogoStyle } from "./Styled";
+import { LogoLink, LogoImage } from "./Styled";
+
 
 function Logo(){
   return(
     <div>
-      <LogoStyle>Logo</LogoStyle>
+        <LogoLink to="/">
+          <LogoImage/>
+        </LogoLink>
     </div>
   );
 }
