@@ -29,8 +29,13 @@ export const ItemInfo = styled.div`
   flex: 1;
 `;
 
+export const ItemTitle = styled.h3`
+margin-bottom: 0px;
+`;
+
 export const Price = styled.p`
-  margin-bottom: 5px;
+  margin-bottom: 30px;
+  margin-top: 0px;
 `;
 
 export const Header = styled.h1`
@@ -50,18 +55,20 @@ export const Total = styled.h2`
 
 export const CheckoutLink = styled(Link)`
 padding: 13px 105px;
-background-color: rgb(125, 39, 39);
-color: white;
+background-color: rgba(202, 104, 44, 0.61);
+color: black;
 cursor: pointer;
 border: medium;
 border-radius: 4px;
 font-size: 14px;
 margin-top: 20px;
 text-decoration: none;
+transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+margin-bottom:40px;
 
 &:hover {
-  background-color: rgb(134, 91, 91);
-}
-
-
+  background-color: rgb(202, 104, 44);
+  color: rgb(255, 255, 255);
+  border-color: rgb(212, 148, 11);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;}
 `;

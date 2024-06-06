@@ -66,6 +66,7 @@ margin-top: 5px;
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -86,12 +87,22 @@ export const Img = styled.img`
   }
 `;
 
+export const ReviewsContainer = styled.div`
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+`;
+
 export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px; /* Add padding for better spacing */
+  padding: 0px;
+  flex: 1;
+
 
   @media screen and (max-width: 768px) {
     padding: 0; /* Remove padding on smaller screens */
@@ -99,28 +110,70 @@ export const DetailsContainer = styled.div`
   }
 `;
 
-export const ReviewsContainer = styled.div`
-  margin-top: 20px;
+export const ProductInfo = styled.div`
+margin: 0px 85px 0px 55px;  
+display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
 
   @media screen and (max-width: 768px) {
     margin-top: 10px; /* Reduce top margin on smaller screens */
   }
 `;
 
+export const Title = styled.h2`
+text-align: center;
+font-size: 2em;
+margin-bottom: 0px;
+color: #333;
+`;
+
+export const ProductPrice = styled.p`
+  font-size: 15px;
+  padding: 15px 45px;
+  margin-bottom: 55px;
+  color: #555;
+  text-align: center;
+  margin-top: 0px;
+`;
+
+export const DiscountContainer = styled.div`
+  padding: 15px 45px;
+  background-color: #e8f5e9;
+`;
+
+export const DiscountedPrice = styled.p`
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  color: #d32f2f;
+`;
+
+export const DiscountPercentage = styled.p`
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #388e3c;
+`;
+
+
 export const Button = styled.button`
   padding: 13px 105px;
-  background-color: rgb(125, 39, 39);
-  color: white;
+  background-color: rgba(202, 104, 44, 0.61);
+  color: black;
   cursor: pointer;
   border: medium;
   border-radius: 4px;
   font-size: 14px;
+  margin: 0px auto;
   margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+margin-top: 60px;
 
   &:hover,
   &:active {
-    background-color: rgb(89, 36, 36);    
-    color: #fff;
+    background-color: rgb(202, 104, 44);    color: #fff;
+    border-color: #d4940b;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 

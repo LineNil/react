@@ -1,19 +1,20 @@
 import React from "react";
+import {ReviewsContainer, ReviewsTitle, ReviewsList, ReviewItem, ReviewUsername, ReviewRating, ReviewDescription } from "./styles";
 
 function Reviews({ reviews }) {
   return(
-    <div>
-      <h3>Reviews:</h3>
-      <ul>
+    <ReviewsContainer>
+      <ReviewsTitle>Reviews:</ReviewsTitle>
+      <ReviewsList>
         {reviews.map((review) => (
-          <li key={review.id}>
-            <p>Username: {review.username}</p>
-            <p>Rating: {review.rating}</p>
-            <p>Description: {review.description}</p>
-          </li>
+          <ReviewItem  key={review.id}>
+            <ReviewUsername>Username: {review.username}</ReviewUsername>
+            <ReviewRating>Rating: {review.rating}</ReviewRating>
+            <ReviewDescription>Description: {review.description}</ReviewDescription>
+          </ReviewItem >
         ))}
-      </ul>
-    </div>
+      </ReviewsList>
+    </ReviewsContainer>
   );
 }
 

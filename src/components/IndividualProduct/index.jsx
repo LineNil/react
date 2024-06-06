@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "../Reviews";
 import Notification from "./notification";
-import { ProductContainer, ImageContainer, Img, ReviewsContainer, DetailsContainer, Button, NoReviews } from "./Styles";
+import { ProductContainer, DiscountPercentage, DiscountedPrice, DiscountContainer, ProductPrice, Title, ImageContainer, Img, ProductInfo, DetailsContainer, Button, NoReviews } from "./Styles";
 
 
 function IndividualProduct({ products,addToCart }) {
@@ -24,28 +24,29 @@ function IndividualProduct({ products,addToCart }) {
     <div>
       {notification && <Notification product={notification} />}
    <ProductContainer>
+
+      <DetailsContainer>
       <ImageContainer>
         <Img src={product.image.url} alt={product.image.alt} />
       </ImageContainer>
-      <DetailsContainer>
-        <h2>{product.title}</h2>
-        <p>Price: ${product.price}</p>
-        {product.discountedPrice && (
-          <div>
-            <p>Discounted Price: ${product.discountedPrice}</p>
-            <p>Discount: {calculateDiscount(product.price, product.discountedPrice)}%</p>
-            <p>Description: {product.description}</p>
-          </div>
-        )}
-        <Button onClick={handleAddToCart}>Add to cart</Button>
-      </DetailsContainer>
-      <ReviewsContainer>
+
         {product.reviews.length > 0 ? (
           <Reviews reviews={product.reviews} />
         ) : (
           <NoReviews>No reviews on this product!</NoReviews>
         )}
-      </ReviewsContainer>
+      </DetailsContainer>
+      <ProductInfo>
+      <Title>{product.title}</Title>
+        <ProductPrice>Price: ${product.price}</ProductPrice>
+        {product.discountedPrice && (
+          <DiscountContainer>
+            <DiscountedPrice>Discounted Price: ${product.discountedPrice}</DiscountedPrice>
+            <DiscountPercentage>Discount: {calculateDiscount(product.price, product.discountedPrice)}%</DiscountPercentage>
+          </DiscountContainer>
+        )}
+        <Button onClick={handleAddToCart}>Add to cart</Button>
+      </ProductInfo>
     </ProductContainer>
     </div>
  
