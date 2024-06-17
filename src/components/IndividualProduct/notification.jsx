@@ -1,4 +1,3 @@
-// src/components/Notification.js
 import React from 'react';
 import { NotificationContainer, Price, Product, OriginalPrice, NotificationImage, NotificationContent } from './Styles';
 

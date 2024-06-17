@@ -22,7 +22,7 @@ function Checkout({ cartItems, removeFromCart }) {
             </CartItemCardWrapper>
           ))}
           <h2>Total: ${totalPrice}</h2>
-          <CheckoutLink to="/checkout/success">Checkout</CheckoutLink>
+          <CheckoutLink to="/checkout/success">Checkout test</CheckoutLink>
         </>
       )}
     </Wrapper>

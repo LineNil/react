@@ -5,7 +5,7 @@ function Success({ emptyCart, updateCartItemCount }) {
   useEffect(() => {
     emptyCart();
     updateCartItemCount(0);
-  }, []);
+  }, [emptyCart, updateCartItemCount]);
 
   return (
     <SuccessContainer>
@@ -19,3 +19,4 @@ function Success({ emptyCart, updateCartItemCount }) {
 }
 
 export default Success;
+/* eslint-enable */
